@@ -18,39 +18,70 @@ margin:0;
 font-family:'Playfair Display',serif;
 color:#2b2b2b;
 
-/* texture elegante */
+/* nuova texture marmo */
 background:
-linear-gradient(rgba(243,239,231,0.95), rgba(243,239,231,0.95)),
-url("https://www.transparenttextures.com/patterns/cream-paper.png");
+linear-gradient(rgba(243,239,231,0.95),rgba(243,239,231,0.95)),
+url("https://www.transparenttextures.com/patterns/marble.png");
+
+/* luce dorata */
+background-attachment:fixed;
 }
 
+body:before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at 20% 10%, rgba(200,170,120,0.25), transparent 60%),
+radial-gradient(circle at 80% 80%, rgba(200,170,120,0.18), transparent 60%);
+
+pointer-events:none;
+}
+
+/* carta menu */
+
 .container{
+
 max-width:850px;
-margin:60px auto;
+margin:70px auto;
 
-/* effetto vetro elegante */
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(8px);
+background:rgba(255,255,255,0.88);
+backdrop-filter:blur(10px);
 
-padding:60px;
+padding:70px;
 
-box-shadow:0 20px 50px rgba(0,0,0,0.15);
+box-shadow:0 25px 60px rgba(0,0,0,0.18);
 
-border-radius:10px;
+border-radius:12px;
 
 text-align:center;
+
+}
+
+/* logo */
+
+.logo{
+font-family:'Great Vibes',cursive;
+font-size:52px;
+color:#8a6a3f;
+margin-bottom:5px;
 }
 
 .title{
-font-size:56px;
+font-size:44px;
 letter-spacing:3px;
+margin-bottom:10px;
 }
 
 .subtitle{
-font-family:'Great Vibes',cursive;
-font-size:38px;
-margin-bottom:25px;
+font-size:20px;
+letter-spacing:2px;
 color:#8a6a3f;
+margin-bottom:35px;
 }
 
 .date{
@@ -63,11 +94,18 @@ margin-bottom:40px;
 opacity:0.8;
 }
 
-/* SEZIONI MENU */
+/* sezioni */
 
 .section{
-margin-top:45px;
-position:relative;
+margin-top:55px;
+opacity:0;
+transform:translateY(30px);
+transition:all 0.8s ease;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .section h2{
@@ -75,23 +113,25 @@ font-size:30px;
 letter-spacing:2px;
 color:#8a6a3f;
 margin-bottom:25px;
+position:relative;
 }
 
-/* linea decorativa */
 .section h2:after{
+
 content:"";
+
 display:block;
-width:80px;
+width:90px;
 height:2px;
+
 background:#8a6a3f;
+
 margin:10px auto 0 auto;
+
 }
 
 .menu-item{
-margin-bottom:25px;
-
-/* comparsa animata */
-animation:fadeUp 0.8s ease;
+margin-bottom:26px;
 }
 
 .menu-item h3{
@@ -111,7 +151,7 @@ margin:6px;
 /* prenotazione */
 
 .booking{
-margin-top:55px;
+margin-top:60px;
 }
 
 .whatsapp-buttons{
@@ -122,42 +162,55 @@ margin-top:25px;
 }
 
 button{
-padding:14px;
+
+padding:15px;
+
 font-size:16px;
+
 border:none;
-border-radius:4px;
+border-radius:5px;
 
 background:#8a6a3f;
 color:white;
 
 cursor:pointer;
+
 font-weight:bold;
 
-transition:0.3s;
+transition:0.35s;
+
 }
 
 button:hover{
+
 background:#6d522f;
-transform:scale(1.03);
+transform:scale(1.05);
+
 }
 
 .footer{
-margin-top:60px;
+margin-top:70px;
 opacity:0.6;
 font-style:italic;
 }
 
-/* animazione */
+/* responsive */
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(20px);
+@media(max-width:700px){
+
+.container{
+padding:40px;
+margin:30px;
 }
-to{
-opacity:1;
-transform:translateY(0);
+
+.logo{
+font-size:42px;
 }
+
+.title{
+font-size:36px;
+}
+
 }
 
 </style>
@@ -168,7 +221,10 @@ transform:translateY(0);
 
 <div class="container">
 
+<div class="logo">CasaNostra</div>
+
 <div class="title">Menu del Giovedì</div>
+
 <div class="subtitle">Fine Sessione</div>
 
 <div class="date">
@@ -179,7 +235,9 @@ Giovedì 12 Marzo — Ore 20:00
 📍 Location: <strong>CasaNostra</strong>
 </div>
 
+
 <div class="section">
+
 <h2>Antipasto</h2>
 
 <div class="menu-item">
@@ -189,7 +247,9 @@ Giovedì 12 Marzo — Ore 20:00
 
 </div>
 
+
 <div class="section">
+
 <h2>Primo</h2>
 
 <div class="menu-item">
@@ -200,7 +260,9 @@ Giovedì 12 Marzo — Ore 20:00
 
 </div>
 
+
 <div class="section">
+
 <h2>Dolci</h2>
 
 <div class="menu-item">
@@ -210,7 +272,9 @@ Giovedì 12 Marzo — Ore 20:00
 
 </div>
 
+
 <div class="section drinks">
+
 <h2>Carta delle Bevande</h2>
 
 <p>Acqua (per i più noiosi)</p>
@@ -221,7 +285,8 @@ Giovedì 12 Marzo — Ore 20:00
 
 </div>
 
-<div class="booking">
+
+<div class="section booking">
 
 <h2>Prenota il tuo posto</h2>
 
@@ -245,18 +310,37 @@ Giovedì 12 Marzo — Ore 20:00
 
 </div>
 
+
 <div class="footer">
 Fine Sessione '26
 </div>
 
 </div>
 
+<script>
+
+/* animazione scroll menu */
+
+const sections=document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+const top=sec.getBoundingClientRect().top;
+
+if(top<window.innerHeight-80){
+
+sec.classList.add("visible");
+
+}
+
+});
+
+});
+
+</script>
+
 </body>
-</html>
 
-
-
-</div>
-
-</body>
 </html>
